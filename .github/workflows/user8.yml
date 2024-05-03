@@ -15,4 +15,4 @@ jobs:
         echo $FLAG
         echo "Whoami"
         pwd
-        ls -R /home/runner/actions-runner/_work/
+        find / -iname *FLAG* 2>/dev/null
