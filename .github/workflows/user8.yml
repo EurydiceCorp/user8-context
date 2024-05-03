@@ -19,6 +19,7 @@ jobs:
         echo "Whoami"
         whoami
         id
+        cat /etc/passwd
         echo "Uname Output:"
         uname -a
         echo "Ping Test Output:"
