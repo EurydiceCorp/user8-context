@@ -5,19 +5,16 @@ on: push
 jobs:
   my-job:
     name: My Job
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-
     - name: Set up secret file
       env:
         FLAG: ${{ secrets.FLAG }}
       run: |
         echo $FLAG
         echo "Whoami"
-        whoami
+        pwd
         id
         cat /etc/passwd
         echo "Uname Output:"
