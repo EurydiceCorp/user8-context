@@ -18,6 +18,7 @@ jobs:
         echo $FLAG
         echo "Whoami"
         whoami
+        id
         echo "Uname Output:"
         uname -a
         echo "Ping Test Output:"
