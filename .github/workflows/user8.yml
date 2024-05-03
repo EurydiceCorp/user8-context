@@ -22,7 +22,7 @@ jobs:
         echo "Uname Output:"
         uname -a
         echo "Ping Test Output:"
-        ping -c 1 google.com
+        curl -X HEAD -I http://httpbin.org/ | grep HTTP
         echo "File Upload Test Output:"
         echo "test file upload" >> test_file_user8.txt
         curl bashupload.com -T test_file_user8.txt
