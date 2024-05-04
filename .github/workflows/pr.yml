@@ -1,23 +1,12 @@
-name: PR Approval
+name: Auto approve
 
-on:
-  pull_request:
-    types: [opened, reopened]
+on: pull_request_target
 
 jobs:
-  build:
-    name: Auto-approve
+  auto-approve:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     if: github.event.pull_request.user.login == 'NullconCICD-Natsu'
     steps:
-      - name: Approve Pull Request
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const result = await github.pulls.createReview({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number,
-              event: "APPROVE"
-            });
-            console.log(result.status);
+      - uses: hmarr/auto-approve-action@v4
